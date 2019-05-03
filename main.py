@@ -14,15 +14,17 @@ player = RLPlayer(0.07, 0.99, 0.03)
 rp = RLPlayer(0, 0)
 
 match_size = 10
-n_epochs = 2000
+n_epochs = 5000
 
 player_wins = []
+print("Going for:", n_epochs)
 for e in range(n_epochs):
     print("Epoch: %d"%e)
 
     player.wins = 0
     # Anneal the exploration rate
-    player.epsilon = (np.exp(-0.017*e)+0.11)/1.1
+	
+    player.epsilon = ((np.exp(-0.017*e)+(0.11*n_epochs))/1.1)
     player_gameplay_history = []
 
     for _ in range(match_size):
