@@ -9,6 +9,7 @@ import nn
 class RLPlayer:
     def __init__(self, q_lr, discount_factor, net_lr = 0.01):
         # We ougth to use softmax in this
+        # Trying: [64, 256, 256, 128, 64] Layer arcitechture next
         self.policy_net = nn.NN([64, 128, 128, 64, 64], net_lr)
 
         # This ought to decay
